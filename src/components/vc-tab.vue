@@ -40,7 +40,7 @@ export default {
     methods: {
 	  handleClick:function(val){//切换tab
 	    if(val.name=="首页"){
-				this.$router.push({path:'/helloWorld'})
+				this.$router.push({path:'/main'})
 				return
 			}
 			for(let i = 0;i < this.$store.state.hmtp.tabs.length;i++){

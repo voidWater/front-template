@@ -2,6 +2,17 @@
   <div id="app">
 	<header id="header" class="color">
 		<div class="word">{{title}}</div>
+		<div class="user-bar">
+		 <el-dropdown>
+		  <span class="el-dropdown-link">
+			<i class="fa fa-user"></i>&nbsp;{{user}}<i class="el-icon-arrow-down el-icon--right"></i>
+		  </span>
+		  <el-dropdown-menu slot="dropdown">
+			<el-dropdown-item>修改密码</el-dropdown-item>
+			<el-dropdown-item>退出系统</el-dropdown-item>
+		  </el-dropdown-menu>
+		 </el-dropdown>
+	</div>
 	</header>
 	<aside class="menu" :class="{sMenu:$store.state.hmtp.sCoftMenu}" >
 		<vc-menu :items="menu" title="前端基础框架"></vc-menu>
@@ -26,12 +37,11 @@ export default {
   data () {
     return {
       title: 'Welcome to Your room',
+	  user:"your name",
 	  menu:[
-		{name:"模板一",code:"null",router:"",active:false,
-			subMenus:[{name:"一般界面",code:"null",parent:"模板一",router:"/template/t1"}],
-		},
-		{name:"模板二",code:"null",router:"",active:false,
-			subMenus:[{name:"一般界面",code:"null",parent:"模板二",router:"/test/main"}],
+		{name:"模板",code:"null",router:"",active:false,
+			subMenus:[{name:"一般界面",code:"null",parent:"模板",router:"/template/t1"},
+			{name:"富文本编辑",code:"null",parent:"模板",router:"/template/rt"}],
 		},
 		{name:"百度地图用例",code:"null",router:"",active:false,
 			subMenus:[{name:"概览-1",code:"null",parent:"百度地图用例",router:"/test/main"},
@@ -92,7 +102,13 @@ export default {
 	width:600px;
 }
 #header .word{
-	display:inline-block;margin-left:50px;line-height:45px;font-size:25px;
+	display:inline-block;margin-left:50px;line-height:45px;font-size:25px;display: inline-block;
+}
+#header .user-bar{
+	float:right;line-height: 45px;margin: 0 40px;
+}
+#header .user-bar .el-dropdown{
+	color:#fff;
 }
 body{
 	margin:0;

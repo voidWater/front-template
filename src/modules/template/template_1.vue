@@ -1,57 +1,36 @@
 <template>
 	<div class="t1">
+		<vc-utils ref="utils"></vc-utils>
 		<div class="form-bar">
-			<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm" size="mini" :inline="true" >
-			  <el-form-item label="活动名称" prop="name">
-				<el-input v-model="ruleForm.name"></el-input>
-			  </el-form-item>
-			  <el-form-item label="活动区域" prop="region">
-				<el-select v-model="ruleForm.region" placeholder="请选择活动区域">
-				  <el-option label="区域一" value="shanghai"></el-option>
-				  <el-option label="区域二" value="beijing"></el-option>
-				</el-select>
-			  </el-form-item>
-			  <el-form-item label="活动时间" required>
-				<el-col :span="11">
-				  <el-form-item prop="date1">
-					<el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1" style="width: 100%;"></el-date-picker>
-				  </el-form-item>
-				</el-col>
-				<el-col class="line" :span="2">-</el-col>
-				<el-col :span="11">
-				  <el-form-item prop="date2">
-					<el-time-picker placeholder="选择时间" v-model="ruleForm.date2" style="width: 100%;"></el-time-picker>
-				  </el-form-item>
-				</el-col>
-			  </el-form-item>
-			  <el-form-item label="即时配送" prop="delivery">
-				<el-switch v-model="ruleForm.delivery"></el-switch>
-			  </el-form-item>
-			  <el-form-item label="活动性质" prop="type">
-				<el-checkbox-group v-model="ruleForm.type">
-				  <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
-				  <el-checkbox label="地推活动" name="type"></el-checkbox>
-				  <el-checkbox label="线下主题活动" name="type"></el-checkbox>
-				  <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
-				</el-checkbox-group>
-			  </el-form-item>
-			  <el-form-item label="特殊资源" prop="resource">
-				<el-radio-group v-model="ruleForm.resource">
-				  <el-radio label="线上品牌商赞助"></el-radio>
-				  <el-radio label="线下场地免费"></el-radio>
-				</el-radio-group>
-			  </el-form-item>
-			  <el-form-item label="活动形式" prop="desc">
-				<el-input type="textarea" v-model="ruleForm.desc"></el-input>
-			  </el-form-item>
-			  <el-form-item>
-				<el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
-				<el-button @click="resetForm('ruleForm')">重置</el-button>
-			  </el-form-item>
+			<div class="title-bar">
+					<i class="fa fa-th-large"></i>&nbsp;基本表单
+			</div>
+			<el-form :inline="true" :model="formInline" class="demo-form-inline">
+				<el-form-item label="审批人">
+					<el-input v-model="formInline.user" placeholder="审批人"></el-input>
+				</el-form-item>
+				<el-form-item label="活动区域">
+					<el-select v-model="formInline.region" placeholder="活动区域">
+						<el-option label="区域一" value="shanghai"></el-option>
+						<el-option label="区域二" value="beijing"></el-option>
+					</el-select>
+				</el-form-item>
+				<el-form-item>
+					<el-button type="primary" @click="onSubmit">查询</el-button>
+				</el-form-item>
 			</el-form>
-			
 		</div>
 		<div class="content-bar">
+			<div class="control-bar">
+					<el-row>
+						<el-button>默认按钮</el-button>
+						<el-button type="primary">主要按钮</el-button>
+						<el-button type="success">成功按钮</el-button>
+						<el-button type="info">信息按钮</el-button>
+						<el-button type="warning">警告按钮</el-button>
+						<el-button type="danger">危险按钮</el-button>
+					</el-row>
+			</div> 
 			<el-table
 			  :data="tableData"
 			  style="width: 100%">
@@ -70,16 +49,26 @@
 				label="地址">
 			  </el-table-column>
 			</el-table>
+			<el-pagination
+				background
+				layout="prev, pager, next"
+				:total="1000">
+			</el-pagination>
 		</div>
 	</div>
 </template>
 
 <script>
+import vcUtils	from '../../components/vc-utils.vue'
 export default {
   name: 'template_1',
+	components:{vcUtils},
   data () {
 	return {
-	    msg: 'Welcome to Your Vue.js App333333',
+	    formInline: {
+          user: '',
+          region: ''
+        },
 		tableData: [{
 			date: '2016-05-02',
 			name: '王小虎',
@@ -110,19 +99,27 @@ export default {
 	}
   },
 	methods:{
-		
+			showLoading:function(){
+					this.$refs.utils.showLoading()
+			}
 	}
 }
 </script>
 
 <style>
 	.t1{
-		background-color: #f2f2f2;width: 100%;height: 100%;
+		background-color: #f2f2f2;width: 100%;height: 100%;text-align: left;
 	}
 	.form-bar{
-		width: 100%;padding: 20px 0;background-color: #fff;margin-bottom: 20px;
+		width: 100%;box-sizing:border-box;padding: 5px 10px 20px 10px;background-color: #fff;margin-bottom: 20px;text-align: left;
+	}
+	.title-bar{
+		margin-bottom: 20px;
 	}
 	.content-bar{
-		width: 100%;height:auto;
+		width: 100%;height:auto;background-color: #fff;padding: 20px 0;
+	}
+	.control-bar{
+		width:100%;box-sizing:border-box;padding: 5px 10px 20px 10px;background-color: #fff;border-bottom: 1.5px solid #ebeef5;
 	}
 </style>
