@@ -1,88 +1,31 @@
 <template>
   <div class="hello">
-    <h1 @contextmenu="rightClick">{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
-	<router-link to="/foo">Go to Foo</router-link>
-	<router-link to="/main">Go to m</router-link>
-    <router-link to="/active">Go to a</router-link>
+		<img class="login-bg" src="../assets/login-background.jpg">
+		<div class="login-bar">
+			  <div >
+				<img class="login-bar-content" src="../assets/a.png">
+			  </div>
+			  <div class="login-bar-content">
+				<div class="login-line"><el-input
+						placeholder="请输入密码"
+						suffix-icon="el-icon-view"
+						v-model="password">
+					 </el-input>
+				</div>	
+				<div class="login-line"><el-input
+						type="password"
+						placeholder="请输入密码"
+						suffix-icon="el-icon-view"
+						v-model="password">
+					 </el-input>
+				</div>
+				<div class="login-line">
+					<el-button @click="login" type="primary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp登&nbsp&nbsp&nbsp录&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</el-button>
+				</div>
+			  </div>
+		</div>
+		<router-link to="/main">login</router-link>
+    
   </div>
 </template>
 
@@ -95,8 +38,8 @@ export default {
     }
   },
 	methods:{
-		rightClick:function(){
-			alert(1);
+		login:function(){
+			this.$router.push({path:'/main'})
 		}
 	}
 }
@@ -104,18 +47,29 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+	body{
+	margin: 0;padding: 0;
+	background-color:#e5e8ed;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.login-bg {
+    width: 100%;height: 100%;position: absolute;top: 0;right: 0;left: 0;bottom: 0;margin: auto;z-index:-1;
+	  filter: blur(6px);
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.login-page{
+	height:100%;
 }
-a {
-  color: #42b983;
+.login-title{
+	font-size:40px;
+	text-align:center;
+	color:#fff;margin-top:200px;
+}
+.login-bar{
+	width:40%;height:300px;background-color:#ffffff47;margin:50px auto 0 auto;padding:20px;
+}
+.login-bar .login-bar-content{
+	width:50%;float:left;
+}
+.login-line{
+	margin:30px 50px 30px 10px;color:
 }
 </style>

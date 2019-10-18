@@ -69,13 +69,19 @@ export default {
 	float:right;background-color:#1c608e;height:38px;line-height:38px;padding:0 10px
 }
 .vc-menu{
-	font-size:14px;font-size:12px;color:#4a5a6a;height:100%;background-color:#4484ce;
+	font-size:14px;color:#4a5a6a;height:100%;background-color:#4484ce;
 }
 .item{
-	text-align:left;padding: 10px 20px;color:#fff;
+	text-align:left;padding: 12px 20px;color:#fff;
+}
+.item:hover{
+	background-color: #2f96ff;
 }
 .sub-item{
 	text-align:left;padding: 10px 30px;background-color:#e8e8ef;color:#838A9D;
+}
+.sub-item:hover{
+	background-color: #2f96ff;color:#fff;
 }
 .menu-name{
 	margin-left:10px;

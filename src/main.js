@@ -6,9 +6,10 @@ import 'element-ui/lib/theme-chalk/index.css';
 import App from './App'
 import router from './router'
 import appStore from './vuex/store'
+import axios from 'axios';
 
+Vue.prototype.$axios = axios;
 Vue.use(ElementUI,{ size: 'small', zIndex: 3000 });
-
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
