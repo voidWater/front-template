@@ -54,6 +54,10 @@ export default {
 		{name:"模板",code:"null",router:"",active:false,
 			subMenus:[{name:"一般界面",code:"null",parent:"模板",router:"/main/profile"},
 			{name:"富文本编辑",code:"null",parent:"模板",router:"/main/posts"}],
+		},
+		{name:"企业管理",code:"null",router:"",active:false,
+			subMenus:[{name:"部门机构角色设置",code:"null",parent:"企业管理",router:"/main/userManage"},
+			{name:"人员管理",code:"null",parent:"企业管理",router:"/main/userManage"}],
 		}
 		]
 	}
@@ -67,7 +71,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 	#app {
 	  font-family: 'Avenir', Helvetica, Arial, sans-serif;
 	  -webkit-font-smoothing: antialiased;
@@ -82,9 +86,9 @@ export default {
 	#tab{
 		position:absolute;left:0;right:0;top:0;
 	}
-	.content{
+/* 	.content{
 		position:absolute;left:200px;right:0;top:55px;bottom:0;
-	}
+	} */
 	.sContent{
 		left:35px;
 	}
