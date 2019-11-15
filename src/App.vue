@@ -12,7 +12,7 @@ export default {
     }
   },
   created:function(){
-	//this.$router.push({path:'/janMain'})
+		this.$router.push({path:'/mainOrigin'})
   },
   methods:{
   }

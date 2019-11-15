@@ -2,12 +2,14 @@ import Vue from 'vue';
 import vuex from 'vuex';
 import Hmtp from './hmtp'
 import jan from './jan'
+import view from './viewStatus'
 Vue.use(vuex);
 
 export default new vuex.Store({
 		modules:{
 			hmtp:Hmtp,
-			jan:jan
+			jan:jan,
+			view:view
 		},
 		    state:{
 		    rootVal:"根节点Store的值"
