@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-	<router-view/>
+		<transition name="el-fade-in-linear">
+			<router-view/>
+		</transition>
   </div>
 </template>
 
@@ -12,7 +14,7 @@ export default {
     }
   },
   created:function(){
-		this.$router.push({path:'/mainOrigin'})
+		this.$router.push({path:'/login'})
   },
   methods:{
   }

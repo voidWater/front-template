@@ -13,9 +13,12 @@ import router from './router'
 import appStore from './vuex/store'
 import axios from 'axios';
 
+import VCharts from 'v-charts'
+
 Vue.prototype.$axios = axios;
 Vue.use(ElementUI,{ size: 'small', zIndex: 3000 });
 Vue.use(MintUI);
+Vue.use(VCharts);
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

@@ -1,8 +1,8 @@
 <template>
-	<div id='main'>
-		<div class="head">
+	<div id=''>
+<!-- 		<div class="head">
 			<span class="title">编辑器</span>
-		</div>
+		</div> -->
 		<el-row>
 		  <el-col :span="12">
 			  <div class="left">
@@ -91,7 +91,7 @@
 		}
 		},
 		created:function(){
-			this.$router.push({path:'/janMain/view'})
+			this.$router.push({path:'/mainOrigin/janMain/view'})
 			this.timer = setInterval(this.countdown, 1000);
 			this.init();
 		},
